@@ -5,13 +5,15 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "postinstall": "openapi-generator generate -i https://petstore3.swagger.io/api/v3/openapi.json -g javascript --additional-properties useES6=false,usePromises=true -o ./swagger-client && npm i --prefix ./swagger-client"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^1.0.15-4.3.1",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
